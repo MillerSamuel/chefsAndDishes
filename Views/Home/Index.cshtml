@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var count=0;
+}
+
+<div class="d-flex justify-content-around">
+    <h1 class="display-4">Chefs| <a href="/Dishes"> Dishes</a></h1>
+    <a href="/new">Add A Chef</a>
+</div>
+
+<h3>Check out our roster of Chefs!</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col"># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Chef chef in ViewBag.allChefs)
+        {
+            <tr>
+                <td>@chef.FirstName @chef.LastName</td>
+                <td></td>
+                <td>
+                    @foreach (Dish d in chef.CreatedDishes)
+                    {
+                        {count+=1;}
+                    }
+                    @count
+                    @{count=0;}
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

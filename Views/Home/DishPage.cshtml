@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @model Dish
+<div class="d-flex justify-content-around">
+    <h1 class="display-4"> <a href="/">Chefs</a> |Dishes</h1>
+    <a href="/newDish">Add A Dish</a>
+</div>
+
+<h3>Yum, take a look at our tasty Dishes!</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Chef</th>
+            <th scope="col">Tastiness</th>
+            <th scope="col">Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Dish d in ViewBag.allDishes)
+        {
+            <tr>
+                <td>@d.Name</td>
+                <td>@d.Chef.FirstName @d.Chef.LastName</td>
+                <td>@d.Tastiness</td>
+                <td>@d.Calories</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</body>
+</html>
